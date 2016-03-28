@@ -57,16 +57,16 @@ beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 -- Tweaks for default theme
 theme.font          = "sans 8"
 
-theme.bg_normal     = "#222222"
+theme.bg_normal     = "#000000"
 theme.bg_focus      = "#235487"
 theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = "#444444"
+theme.bg_minimize   = "#333333"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#aaaaaa"
+theme.fg_normal     = "#bbbbbb"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#ffffff"
+theme.fg_minimize   = "#888888"
 
 theme.border_width  = 2
 theme.border_normal = "#4E5757"
@@ -321,6 +321,9 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
+    -- Menubar
+    -- awful.key({ modkey }, "p", function() menubar.show() end),
+
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
@@ -330,9 +333,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end),
-    -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+              end)
 )
 
 clientkeys = awful.util.table.join(
