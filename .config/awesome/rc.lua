@@ -17,6 +17,14 @@ require("debian.menu")
 -- More widgets
 local vicious = require("vicious")
 
+-- notifications
+naughty.config.defaults.timeout          = 20
+naughty.config.defaults.font             = "Verdana 15 Bold"
+naughty.config.defaults.margin           = 10
+naughty.config.defaults.fg               = '#ffffff'
+naughty.config.defaults.bg               = '#500000'
+
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -64,6 +72,7 @@ theme.border_width  = 2
 theme.border_normal = "#4E5757"
 theme.border_focus  = "#3277bf"
 theme.border_marked = "#91231c"
+
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
