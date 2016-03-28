@@ -1,0 +1,4 @@
+*
+!/.config
+!/.config/awesome
+!/.config/awesome/rc.lua
