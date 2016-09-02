@@ -271,7 +271,7 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "space", function () if client.focus then client.focus:raise() end end),
+    -- awful.key({ modkey,           }, "space", function () if client.focus then client.focus:raise() end end),
     awful.key({ modkey,           }, "Escape", function () if client.focus then client.focus:lower() end end),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
@@ -326,8 +326,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
-    awful.key({ modkey,           }, "w",     function () awful.layout.inc(layouts,  1) end),
-    awful.key({ modkey, "Shift"   }, "w",     function () awful.layout.inc(layouts, -1) end),
+    awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
+    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
@@ -347,10 +347,10 @@ globalkeys = awful.util.table.join(
 )
 
 clientkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "Return", function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey,           }, "f",      awful.client.floating.toggle                     ),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
+    awful.key({ modkey,           }, "Return", function (c) c:swap(awful.client.getmaster()); c:raise() end),
     awful.key({ modkey, "Control", "Shift" }, "j",      awful.client.movetoscreen               ),
     awful.key({ modkey, "Control", "Shift" }, "k",      function (c) awful.client.movetoscreen(c, c.screen-1) end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
