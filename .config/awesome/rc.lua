@@ -161,7 +161,7 @@ mytestclock_tooltip = awful.tooltip({
 cpuwidget = awful.widget.graph()
 cpuwidget:set_width(20)
 cpuwidget:set_background_color("#494B4F")
-cpuwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 10,0 }, stops = { {0, "#FF5656"}, {0.5, "#88A175"}, 
+cpuwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 10,0 }, stops = { {0, "#FF5656"}, {0.5, "#88A175"},
                     {1, "#AECF96" }}})
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
 
@@ -349,7 +349,7 @@ globalkeys = awful.util.table.join(
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
-    awful.key({ modkey,           }, "f",      awful.client.floating.toggle                     ),
+    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey,           }, "Return", function (c) c:swap(awful.client.getmaster()); c:raise() end),
     awful.key({ modkey, "Control", "Shift" }, "j",      awful.client.movetoscreen               ),
     awful.key({ modkey, "Control", "Shift" }, "k",      function (c) awful.client.movetoscreen(c, c.screen-1) end),
@@ -438,6 +438,10 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Kupfer.py" },
       properties = { border_width = 0 } },
+    { rule = { class = "Mate-panel" },
+       properties = { ontop = true, focusable = false, floating = true, border_width = 0 } } ,
+    { rule = { class = "Xfdesktop" },
+       properties = { focusable = false, border_width = 0, sticky = true, skip_taskbar = true } }
     -- { rule = { class = "gimp" },
     --   properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
